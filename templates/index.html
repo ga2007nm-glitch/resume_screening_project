@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="hero">
+    <h1><i class="fa-solid fa-robot"></i> AI Resume Screening System</h1>
+    <p>Upload resumes, get ATS scores, discover recommended companies and job roles — powered by Python.</p>
+    <div class="hero-btns">
+        <a href="/screening" class="btn-primary"><i class="fa-solid fa-upload"></i> Screen a Resume</a>
+        <a href="/sample-resume" class="btn-outline"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Resume</a>
+    </div>
+</div>
+<div class="feature-grid">
+    <div class="feature-card">
+        <i class="fa-solid fa-file-circle-check"></i>
+        <h3>Resume Screening</h3>
+        <p>Upload PDF/TXT resumes. Get ATS score, skill analysis, and company recommendations.</p>
+        <a href="/screening">Start Screening →</a>
+    </div>
+    <div class="feature-card">
+        <i class="fa-solid fa-building"></i>
+        <h3>Company Matching</h3>
+        <p>AI matches your skills to Google, Microsoft, TCS, Infosys, and more.</p>
+        <a href="/screening">View Matches →</a>
+    </div>
+    <div class="feature-card">
+        <i class="fa-solid fa-file-pen"></i>
+        <h3>Resume Generator</h3>
+        <p>Build a professional sample resume from your details in seconds.</p>
+        <a href="/sample-resume">Generate →</a>
+    </div>
+    <div class="feature-card">
+        <i class="fa-solid fa-chart-line"></i>
+        <h3>Live Dashboard</h3>
+        <p>Track screened resumes, selections, rejections, and average ATS scores in real time.</p>
+        <a href="/dashboard">Open Dashboard →</a>
+    </div>
+</div>
+<div class="matrix-column-panel panel-matched"></div>
+{% endblock %}

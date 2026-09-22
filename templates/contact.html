@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="page-title"><i class="fa-solid fa-envelope"></i> Contact Us</h1>
+<div class="panel" style="margin-bottom:20px;">
+    <div class="contact-item"><i class="fa-solid fa-envelope"></i><span>airesumescreener@gmail.com</span></div>
+    <div class="contact-item"><i class="fa-solid fa-phone"></i><span>+1 (555) 123-4567</span></div>
+    <div class="contact-item"><i class="fa-solid fa-location-dot"></i><span>San Francisco, CA, USA</span></div>
+</div>
+<div class="panel">
+    <h2><i class="fa-solid fa-paper-plane"></i> Send a Message</h2>
+    <form id="contactForm">
+        <div class="form-group"><label>Your Name</label><input type="text" name="name" required></div>
+        <div class="form-group"><label>Your Email</label><input type="email" name="email" required></div>
+        <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
+        <button type="submit" class="btn-submit"><i class="fa-solid fa-paper-plane"></i> Send Message</button>
+    </form>
+    <div id="contactResult"></div>
+</div>
+{% endblock %}
+{% block scripts %}
+<script>
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const result = document.getElementById("contactResult");
+    result.innerHTML = '<div class="loading"><i class="fa-solid fa-spinner fa-spin"></i> Sending...</div>';
+    try {
+        const res = await fetch("/api/contact", { method: "POST", body: new FormData(e.target) });
+        const data = await res.json();
+        result.innerHTML = `<div class="alert alert-success">${data.message}</div>`;
+        e.target.reset();
+        updateNotificationBadge();
+    } catch (_) {
+        result.innerHTML = '<div class="alert alert-error">Failed to send message.</div>';
+    }
+});
+</script>
+{% endblock %}

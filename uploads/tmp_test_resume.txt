@@ -1,0 +1,8 @@
+John Doe
+john.doe@example.com | +1 555-123-4567
+
+SKILLS
+Python, SQL, Machine Learning, FastAPI, React
+
+EXPERIENCE
+Backend Developer at TechCorp

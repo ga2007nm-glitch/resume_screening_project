@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="panel">
+    <h1><i class="fa-solid fa-bell"></i> Notifications</h1>
+    <button class="btn-submit" style="max-width:220px;margin-bottom:20px;" onclick="markAllRead()">
+        <i class="fa-solid fa-check-double"></i> Mark All Read
+    </button>
+    <ul id="notifList" class="notif-list"></ul>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/js/notifications.js"></script>{% endblock %}

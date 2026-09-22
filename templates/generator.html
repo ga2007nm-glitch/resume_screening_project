@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="panel">
+    <h1><i class="fa-solid fa-file-pen"></i> Sample Resume Generator</h1>
+    <p style="color:#64748b;margin-bottom:20px;">Fill in your details to generate a professional resume template.</p>
+    <form id="generatorForm">
+        <div class="form-group"><label>Full Name</label><input type="text" name="name" required placeholder="John Doe"></div>
+        <div class="form-group"><label>Email</label><input type="email" name="email" required placeholder="john@email.com"></div>
+        <div class="form-group"><label>Phone</label><input type="text" name="phone" required placeholder="+1 555-123-4567"></div>
+        <div class="form-group"><label>Education</label><textarea name="education" required placeholder="B.Tech Computer Science — University (2024)"></textarea></div>
+        <div class="form-group"><label>Skills</label><textarea name="skills" required placeholder="Python, JavaScript, React, SQL"></textarea></div>
+        <div class="form-group"><label>Experience (optional)</label><textarea name="experience" placeholder="Software Developer — Company (2022 – Present)"></textarea></div>
+        <div class="form-group"><label>Projects</label><textarea name="projects" required placeholder="1. E-commerce App — React + Python"></textarea></div>
+        <button type="submit" class="btn-submit"><i class="fa-solid fa-wand-magic-sparkles"></i> Generate Resume</button>
+    </form>
+    <div id="generatedResume"></div>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/js/generator.js"></script>{% endblock %}

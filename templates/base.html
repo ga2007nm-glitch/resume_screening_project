@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} - AI Resume Screener</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo"><i class="fa-solid fa-brain"></i><span>AI Screener</span></div>
+        <ul class="nav-links">
+            <li><a href="/" class="{% if page == 'home' %}active{% endif %}"><i class="fa-solid fa-house"></i> Home</a></li>
+            <li><a href="/about" class="{% if page == 'about' %}active{% endif %}"><i class="fa-solid fa-circle-info"></i> About</a></li>
+            <li><a href="/screening" class="{% if page == 'screening' %}active{% endif %}"><i class="fa-solid fa-file-circle-check"></i> Resume Screening</a></li>
+            <li><a href="/sample-resume" class="{% if page == 'generator' %}active{% endif %}"><i class="fa-solid fa-file-pen"></i> Resume Generator</a></li>
+            <li><a href="/contact" class="{% if page == 'contact' %}active{% endif %}"><i class="fa-solid fa-envelope"></i> Contact</a></li>
+            <li><a href="/notifications" class="{% if page == 'notifications' %}active{% endif %}"><i class="fa-solid fa-bell"></i> Notifications <span id="notifBadge" class="notif-badge">0</span></a></li>
+            <li><a href="/dashboard" class="{% if page == 'dashboard' %}active{% endif %}"><i class="fa-solid fa-chart-line"></i> Dashboard</a></li>
+        </ul>
+        <div class="bottom-section">
+            <button id="darkModeBtn"><i class="fa-solid fa-moon"></i> Dark Mode</button>
+            <div class="profile"><i class="fa-solid fa-user"></i><span>User Profile</span></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div class="page-content active">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <script src="/static/js/common.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>

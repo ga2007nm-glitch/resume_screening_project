@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+{% block content %}
+<h1 class="page-title"><i class="fa-solid fa-chart-line"></i> Live Dashboard</h1>
+<div class="stat-grid">
+    <div class="stat-card">
+        <h3>Total Resumes</h3>
+        <p id="totalResumes">0</p>
+    </div>
+    <div class="stat-card">
+        <h3>Selected</h3>
+        <p id="selected" class="text-green">0</p>
+    </div>
+    <div class="stat-card">
+        <h3>Moderate Match</h3>
+        <p id="moderateCandidates" style="color: #f97316;">0</p>
+    </div>
+    <div class="stat-card">
+        <h3>Rejected</h3>
+        <p id="rejected" class="text-red">0</p>
+    </div>
+    <div class="stat-card">
+        <h3>Avg ATS Score</h3>
+        <p id="avgScore" class="text-amber">0%</p>
+    </div>
+</div>
+<div class="chart-box">
+    <canvas id="dashChart" height="100"></canvas>
+</div>
+{% endblock %}
+{% block scripts %}<script src="/static/js/dashboard.js"></script>{% endblock %}

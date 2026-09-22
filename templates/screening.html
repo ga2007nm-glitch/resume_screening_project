@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="page-title"><i class="fa-solid fa-file-circle-check"></i> AI Resume Screening</h1>
+<p style="color:#64748b; margin-bottom:20px;">
+    Upload a resume (PDF/TXT) or paste text. Get an ATS score, skills gap matrix, recommended companies, and corporate job roles.
+</p>
+
+<div class="panel">
+    <form id="screeningForm">
+        <div class="form-group">
+            <label for="resumeInput"><i class="fa-solid fa-upload"></i> Upload Resume (PDF / TXT)</label>
+            <input type="file" id="resumeInput" class="file-input" accept=".pdf,.txt">
+        </div>
+        
+        <p style="text-align:center; color:#94a3b8; margin:16px 0;">— OR —</p>
+        
+        <div class="form-group">
+            <label for="resumeText"><i class="fa-solid fa-paste"></i> Paste Resume Text</label>
+            <textarea id="resumeText" placeholder="Paste your resume content here..."></textarea>
+        </div>
+        
+        <button type="submit" class="btn-submit">
+            <i class="fa-solid fa-magnifying-glass-chart"></i> Analyze Resume
+        </button>
+    </form>
+</div>
+
+<div id="resultSection" style="display: none;">
+    <div class="result-card">
+        <h2><i class="fa-solid fa-chart-pie"></i> Analysis Result</h2>
+        
+        <div class="score-banner">
+            <div class="score-value" id="atsScoreValue">0%</div>
+            <div class="score-label">ATS Score</div>
+        </div>
+        
+        <div class="status-container" style="margin-bottom: 20px;">
+            <div class="status-selected" id="statusSelectionField">
+                <i class="fa-solid fa-circle-check"></i> Status: Processing
+            </div>
+            <p class="status-feedback" id="statusFeedbackField">💡 Analysis results will display here.</p>
+        </div>
+        
+        <div class="section-title" style="font-weight: bold; margin: 15px 0 8px;">Matched Skills</div>
+        <div class="skills-container matched-skills" id="matchedSkillsBox" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
+        </div>
+        
+        <div class="section-title" style="font-weight: bold; margin: 15px 0 8px;">Skills to Add</div>
+        <div class="skills-container skills-to-add" id="missingSkillsBox" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 15px;">
+        </div>
+
+        <div class="section-title" style="font-weight: bold; margin: 20px 0 8px;">
+            <i class="fa-solid fa-briefcase"></i> Recommended Job Roles
+        </div>
+        <div class="roles-container" id="rolesPlacementBox" style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px;">
+        </div>
+        
+        <div class="section-title" style="font-weight: bold; margin: 20px 0 8px;"><i class="fa-solid fa-building"></i> Recommended Companies</div>
+        <div class="companies-container" id="companiesPlacementBox">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/static/js/screening.js"></script>
+{% endblock %}
